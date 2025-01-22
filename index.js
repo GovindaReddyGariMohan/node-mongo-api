@@ -2,11 +2,13 @@ const express = require('express')
 const mongoose = require('mongoose')
 const cors = require('cors')
 const UserModel = require('./models/userDetails')
+const dotEnv=require('dotenv')
 const app = express()
 app.use(express.json())
 app.use(cors())
+dotEnv.config()
 
-mongoose.connect('mongodb+srv://mohan8985320915:abcd1234@cluster0.5vdba.mongodb.net/employee');
+mongoose.connect(process.env.MONGO_URL);
 
 app.post('/login', (req, res) => {
     const { email, password } = req.body;
