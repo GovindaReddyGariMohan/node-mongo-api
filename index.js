@@ -7,7 +7,7 @@ const app = express()
 app.use(express.json())
 app.use(cors())
 dotEnv.config()
-const port=process.env.PORT
+const PORT=process.env.PORT
 
 mongoose.connect(process.env.MONGO_URL);
 
@@ -36,6 +36,6 @@ app.post('/register', (req, res) => {
 })
 
 
-app.listen(port, () => {
+app.listen(PORT, () => {
     console.log('successfully conected')
 })
